@@ -7,7 +7,7 @@ export function activate(context: vscode.ExtensionContext) {
   );
 
   const disposable = vscode.commands.registerCommand(
-    "aem-dialog-replacer.helloWorld",
+    "aem-dialog-replacer.replaceAEMDialog",
     () => {
       const config = ConfigService.getInstance();
 
