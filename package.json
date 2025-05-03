@@ -17,8 +17,30 @@
         "command": "aem-dialog-replacer.helloWorld",
         "title": "Hello World"
       }
-    ]
+    ],
+    "configuration": {
+      "type":"object",
+      "title":"AEM Dialog Replacer",
+      "properties": {
+        "aem-dialog-replacer.server": {
+          "type": "string",
+          "default": "http://localhost:4502",
+          "description": "Server URL"
+        },
+        "aem-dialog-replacer.user": {
+          "type": "string",
+          "default": "admin",
+          "description": "Username"
+        },
+        "aem-dialog-replacer.password": {
+          "type": "string",
+          "default": "admin",
+          "description": "Password"
+        }
+      }
+    }
   },
+
   "scripts": {
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
