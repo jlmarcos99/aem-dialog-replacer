@@ -14,8 +14,8 @@
   "contributes": {
     "commands": [
       {
-        "command": "aem-dialog-replacer.helloWorld",
-        "title": "Hello World"
+        "command": "aem-dialog-replacer.replaceAEMDialog",
+        "title": "Replace AEM Dialog"
       }
     ],
     "configuration": {
