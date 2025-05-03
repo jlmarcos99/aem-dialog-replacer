@@ -1,5 +1,5 @@
 import { workspace } from "vscode";
-import { isAnyBlank } from "../utils/isAnyBlank";
+import { isAnyBlank } from "../utils/functions/isAnyBlank";
 
 export class ConfigService {
   private static instance: ConfigService;
