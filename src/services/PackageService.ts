@@ -2,28 +2,22 @@ import JSZip from "jszip";
 import { getFilterRootPath } from "../utils/functions/getFilterRootPath";
 
 export class PackageService {
-  private path: string;
-  private content: string;
 
-  constructor(path: string, content: string) {
-    this.path = path;
-    this.content = content;
-  }
 
-  public async generateZIP(): Promise<ArrayBuffer> {
+  public static async generateZIP(path: string, content: string): Promise<ArrayBuffer> {
     const zip = new JSZip();
 
-    zip.file("META-INF/vault/filter.xml", this.getFilterXML());
+    zip.file("META-INF/vault/filter.xml", this.getFilterXML(path));
     zip.file("META-INF/vault/properties.xml", this.getPropertiesXML());
 
-    zip.file("jcr_root/" + this.path.split("jcr_root/")[1], this.content);
+    zip.file("jcr_root/" + path.split("jcr_root/")[1], content);
 
     const zipFile = await zip.generateAsync({ type: "arraybuffer" });
 
     return zipFile;
   }
 
-  private getPropertiesXML(): string {
+  private static getPropertiesXML(): string {
     return `<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
@@ -44,8 +38,8 @@ export class PackageService {
         `;
   }
 
-  private getFilterXML(): string {
-    const filterXML = getFilterRootPath(this.path);
+  private static getFilterXML(path: string): string {
+    const filterXML = getFilterRootPath(path);
 
     const filterString = `<?xml version="1.0" encoding="UTF-8"?>
     <workspaceFilter version="1.0">

@@ -27,6 +27,12 @@ export class ConfigService {
     return ConfigService.instance;
   }
 
+  public static genInstance(): void{
+    if (!ConfigService.instance) {
+        ConfigService.instance = new ConfigService();
+      }
+  }
+
   public getServer(): string {
     return this.server;
   }
