@@ -2,6 +2,7 @@
   "name": "aem-dialog-replacer",
   "displayName": "AEM Dialog Replacer",
   "description": "Extension to replace an AEM dialog from Visual Studio Code",
+  "publisher": "jlmarcos99",
   "version": "0.0.1",
   "repository": {
 		"type": "git",
